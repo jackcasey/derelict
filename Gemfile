@@ -7,5 +7,9 @@ source :rubygems
 #source :github
 #source "http://gems.github.com"
 
-gem "rspec"
-gem "cucumber"
+
+group :test do
+  gem "rspec"
+  gem "cucumber"
+  gem 'simplecov', :require => false
+end
