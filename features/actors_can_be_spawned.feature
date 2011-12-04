@@ -8,5 +8,10 @@ Feature: Actors can be spawned
     Given a room named "The Stage"
     When I tell it to spawn an actor named "Jemima"
     And I tell it to spawn an actor named "Ralph"
-    Then I should see "Jemima has entered The Stage."
-    And I should see "Ralph has entered The Stage."
+    Then I should see "Jemima enters The Stage."
+    And I should see "Ralph enters The Stage."
+
+  Scenario: Actors can speak and hear each other
+    Given our party
+    When Jemima says "Hello there."
+    Then Ralph should hear "Hello there." from Jemima

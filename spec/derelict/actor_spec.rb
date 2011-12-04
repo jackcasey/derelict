@@ -20,5 +20,22 @@ module Derelict
       end
     end
 
+    context "with a listening delegate" do
+      let(:a) { Actor.new("Phillanius Derringer") }
+      let(:delegate) { double('delegate') }
+
+      it "should notify the delegate of events" do
+        a.listeners << delegate
+        delegate.should_receive(:event).with( Event.new("\"Hello!\"", :says, a) )
+        a.say("Hello!")
+      end
+    end
+
+    it "can hear" do
+      a = Actor.new
+      a.hear( "A wind rustles the leaves." )
+      a.heard.should include "A wind rustles the leaves."
+    end
+
   end
 end
