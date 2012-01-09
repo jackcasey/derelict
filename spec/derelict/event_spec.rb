@@ -9,7 +9,7 @@ module Derelict
       e1.should == e2
     end
 
-    it "does not equal another event with different same content" do
+    it "does not equal another event with different content" do
       e1 = Event.new(:a, :b, :c)
       e2 = Event.new(:a, :c, :b)
       e1.should_not == e2
